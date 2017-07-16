@@ -73,16 +73,19 @@ AC_SUBST(FFI_LDFLAGS)
 AC_SUBST(FFI_CFLAGS)
 
 dnl ==============================WebKit=======================================
-m4_define([webkit_default], [gtk-3.0])
+m4_define([webkit_default], [webkit2])
 
 AC_ARG_WITH([webkit],
-            [AC_HELP_STRING([--with-webkit=@<:@gtk-3.0/1.0@:>@],
+            [AC_HELP_STRING([--with-webkit=@<:@webkit2/gtk-3.0/1.0@:>@],
                             [Select the Webkit backend, default=gtk-3.0])],
 	    [],
             [with_webkit=webkit_default])
 
-dnl=== support both 1.0 and 3.0 (default 3.0) ==
+dnl=== support both 1.0 and 3.0 and wk2 (default wk2) ==
 AS_CASE([$with_webkit],
+        [webkit2], [
+                WEBKIT_PC=webkit2gtk-4.0
+        ],
 	[gtk-3.0], [
 		WEBKIT_PC=webkitgtk-3.0
 	],

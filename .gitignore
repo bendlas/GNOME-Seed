@@ -205,3 +205,5 @@ modules/gettext/._gettext.c
 po/Makefile.in.in
 
 version.xml
+/gtk-doc.m4
+/test-driver
